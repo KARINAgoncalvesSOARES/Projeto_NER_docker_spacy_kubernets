@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reconhecimento de Entidades com spaCy</title>
+    <title>NER com spaCy</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,13 +17,13 @@
         }
 
         #botoes {
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         #limpar {
-            background-color: #f44336;
-            color: white;
-            padding: 10px 20px;
+            background-color: #e66868;
+            color: rgb(255, 255, 255);
+            padding: 20px 15px;
             border: none;
             text-decoration: none;
             display: inline-block;
@@ -33,14 +33,44 @@
         }
 
         #reconhecer {
-            background-color: #4CAF50;
+            background-color: #186e10;
             color: white;
-            padding: 10px 20px;
+            padding: 20px 20px;
             border: none;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
             cursor: pointer;
+        }
+        
+        
+        #definindo_as_cores_do_tema {
+            /* Cor de fundo padrão para o tema claro */
+            background-color: #ffffff;
+            /* Cor do texto padrão para o tema claro */
+            color: #000000;
+        }
+
+        h1, p {
+            /* Cor do texto padrão para h1 e p no tema claro */
+            color: #000000;
+
+            
+        }
+        
+        #temaEscolhido {
+            /* Adicionando margem superior ao ícone */
+            margin-top: 30px;
+        }
+
+        /* Estilos para o tema escuro */
+        body.tema-escuro {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        body.tema-escuro h1, body.tema-escuro p {
+            color: #ffffff;
         }
     </style>
 </head>
@@ -48,10 +78,10 @@
     <h1>Reconhecimento de Entidades com spaCy</h1>
 
     <div id="autor-info">
-        <p><pfont style="color: rgb(222, 38, 21);">Data Scientist:</pfont> Dr. kjhgggg</p>
-        <p><pfont style="color: rgb(222, 38, 14);">Email:</pfont> eddychirinos.unac@gmail.com</p>
-        <p><pfont style="color: rgb(222, 38, 14);">GitHub:</pfont> <a href="https://github.com/EddyGiusepe" target="_blank">https://github.com/EddyGiusepe</a></p>
-        <p><pfont style="color: rgb(222, 38, 14);">LinkedIn:</pfont> <a href="https://www.linkedin.com/in/eddy-giusepe-chirinos-isidro-85a43a42/" target="_blank">https://www.linkedin.com/in/eddy-giusepe-chirinos-isidro-85a43a42/</a></p>
+        <p><pfont style="color: rgb(222, 38, 21);">Data Scientist Jr.:</pfont> Karina Gonçalves Soares</p>
+        <p><pfont style="color: rgb(222, 38, 14);">Email:</pfont> karinagonsoares@gmail.com</p>
+        <p><pfont style="color: rgb(222, 38, 14);">GitHub:</pfont> <a href="https://github.com/KARINAgoncalvesSOARES" target="_blank">https://github.com/EddyGiusepe</a></p>
+        <p><pfont style="color: rgb(222, 38, 14);">LinkedIn:</pfont> <a href="https://www.linkedin.com/in/karina-gon%C3%A7alves-soares-02118a216/" target="_blank">https://www.linkedin.com/in/eddy-giusepe-chirinos-isidro-85a43a42/</a></p>
     </div>
 
     <form action="/resultado" method="post">
@@ -66,6 +96,28 @@
     <script>
         function limparTexto() {
             document.getElementById("texto").value = "";
+        }
+    </script>
+
+<body>
+    
+    <label for="temaEscolhido">Escolha o tema:</label>
+    <select id="temaEscolhido" onchange="mudarTema(this.value)">
+        <option value="claro">Claro</option>
+        <option value="escuro">Escuro</option>
+    </select>
+
+    <script>
+        function mudarTema(opcao) {
+            const body = document.body;
+
+            if (opcao === 'claro') {
+                // Aplicar o tema claro
+                body.className = '';
+            } else if (opcao === 'escuro') {
+                // Aplicar o tema escuro
+                body.className = 'tema-escuro';
+            }
         }
     </script>
 </body>

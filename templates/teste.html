@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página</title>
+
+    <style>
+        .definindo_as_cores_do_tema {
+            /* Cor de fundo padrão para o tema claro */
+            background-color: #ffffff;
+            /* Cor do texto padrão para o tema claro */
+            color: #000000;
+        }
+
+        h1 {
+            /* Cor do texto padrão para h1 no tema claro */
+            color: #000000;
+            margin-bottom: 20px; /* Adicionando uma margem abaixo do título */
+        }
+
+        #temaEscolhido {
+            /* Adicionando margem superior ao ícone */
+            margin-top: 10px;
+        }
+
+        /* Estilos para o tema escuro */
+        .definindo_as_cores_do_tema.tema-escuro {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="definindo_as_cores_do_tema">
+
+    <h1>Olá, mundo!</h1>
+    <label for="temaEscolhido">Escolha o tema:</label>
+    <select id="temaEscolhido" onchange="mudarTema(this.value)">
+        <option value="claro">Claro</option>
+        <option value="escuro">Escuro</option>
+    </select>
+
+    <script>
+        function mudarTema(opcao) {
+            const body = document.body;
+
+            if (opcao === 'claro') {
+                body.className = 'definindo_as_cores_do_tema';
+            } else if (opcao === 'escuro') {
+                body.className = 'definindo_as_cores_do_tema tema-escuro';
+            }
+        }
+    </script>
+
+</body>
+</html>
