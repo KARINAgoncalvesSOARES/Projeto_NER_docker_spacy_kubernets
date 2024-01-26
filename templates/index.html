@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconhecimento de Entidades com spaCy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center; /* Centraliza o conteúdo da página horizontalmente */
+        }
+
+        #texto {
+            width: 100%;
+            height: 150px;
+        }
+
+        #botoes {
+            margin-top: 10px;
+        }
+
+        #limpar {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        #reconhecer {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reconhecimento de Entidades com spaCy</h1>
+
+    <div id="autor-info">
+        <p><pfont style="color: rgb(222, 38, 21);">Data Scientist:</pfont> Dr. kjhgggg</p>
+        <p><pfont style="color: rgb(222, 38, 14);">Email:</pfont> eddychirinos.unac@gmail.com</p>
+        <p><pfont style="color: rgb(222, 38, 14);">GitHub:</pfont> <a href="https://github.com/EddyGiusepe" target="_blank">https://github.com/EddyGiusepe</a></p>
+        <p><pfont style="color: rgb(222, 38, 14);">LinkedIn:</pfont> <a href="https://www.linkedin.com/in/eddy-giusepe-chirinos-isidro-85a43a42/" target="_blank">https://www.linkedin.com/in/eddy-giusepe-chirinos-isidro-85a43a42/</a></p>
+    </div>
+
+    <form action="/resultado" method="post">
+        <label for="texto">Digite seu texto para reconhecimento de entidades:</label>
+        <textarea name="texto" id="texto" placeholder="Insira seu texto aqui..." rows="4" cols="50"></textarea>
+        <div id="botoes">
+            <button type="button" id="limpar" onclick="limparTexto()">Limpar Texto</button>
+            <button type="submit" id="reconhecer">Reconhecer Entidades</button>
+        </div>
+    </form>
+
+    <script>
+        function limparTexto() {
+            document.getElementById("texto").value = "";
+        }
+    </script>
+</body>
+</html>
