@@ -40,11 +40,12 @@ def reconhecer_entidades(texto):
     doc = nlp(texto) # Representação estruturada do texto
 
     # Exibir as entidades reconhecidas:
-    # O trecho a seguir faz parte da função 'reconhecer_entidades' e está relacionada a extração de entidades nomeadas do texto processado pelo Spacy.
+    # O trecho a seguir faz parte da função 'reconhecer_entidades' e está relacionada a 
+    # extração de entidades nomeadas do texto processado pelo Spacy.
     entidades = [(entidade.text, entidade.label_) for entidade in doc.ents]
     return entidades
 
-#O objetivo geral é obter o produto final (renderizar) da página inicial do aplicativo web
+#O objetivo geral é obter o produto final (renderizar) da página inicial do aplicativo web.
 # Parte do aplicativo web usando Flask
 @app.route('/') # Um decorador do Flask que chama a função 'index()'
 def index():
@@ -57,5 +58,5 @@ def resultado():
     entidades = reconhecer_entidades(texto_usuario)
     return render_template('resultado.html', texto=texto_usuario, entidades=entidades, tipos_entidades=exibir_tipos_entidades())
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+if __name__ == '__main__': # Esta condição verifica se o script está sendo executado como o programa principal.
+    app.run(host='0.0.0.0', port=5000, debug=True) # Esta linha inicia o servidor web embutido fornecido pelo Flask.
